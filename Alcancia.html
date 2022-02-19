@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Alcancia</title>
+    </head>
+    <body>
+        <div class="Container">
+            <form>
+                <div>
+                    <label for="DINERO">DINERO</label><bR>
+                    <button id="bd1" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(1)">1</button>
+                    <button id="bd2" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(2)">2</button>
+                    <button id="bd5" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(5)">5</button>
+                    <button id="bd10" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(10)">10</button>
+                    <button id="bd20" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(20)">20</button>
+                    <button id="bd50" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(50)">50</button>
+                    <button id="bd100" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(100)">100</button>
+                    <button id="bd200" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(200)">200</button>
+                    <button id="bd500" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(500)">500</button>
+                    <button id="bd1000" class="btn btn-success col-1 mt-2" type="button" onclick="agregarDinero(1000)">1000</button>
+                </div>
+
+            </form>
+            <br>
+                    <button id="mostrar" class="btn btn-success col-1 mt-2" type="button" onclick="mostrarDinero()">Mostrar Dinero</button>
+                    <button id="calcular" class="btn btn-success col-1 mt-2" type="button" onclick="calcularDinero()" >Calcular</button>
+                    <button id="vaciar" class="btn btn-success col-1 mt-2" type="button" onclick="vaciarAlcancia()" >vaciar</button>
+                    <H3 id="mostrarDinero"></H3>
+        </div>
+        <script>
+            let cartera = [];
+            function agregarDinero(numero) {
+                cartera.push(numero);
+                console.log(cartera);
+            }
+            function mostrarDinero() {
+                let mostrarDinero = document.getElementById("mostrarDinero");
+                mostrarDinero.innerHTML = cartera;
+            }
+            function calcularDinero() {
+                let cdinero = document.getElementById("mostrarDinero");
+                let ELcontador = 0;
+                for(let i = 0; i < cartera.length; i++){
+                    ELcontador += parseInt(cartera[i]);
+                }
+                cdinero.innerHTML = "SUMA: " + ELcontador;
+            }
+            function vaciarAlcancia() {
+                cartera = []; 
+                calcularDinero();
+            }
+
+        
+        </script>
+    </body>
+</html>
